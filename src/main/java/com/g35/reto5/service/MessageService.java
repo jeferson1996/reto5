@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -41,6 +42,10 @@ public class MessageService {
             messageRepository.save(message);
 
         }
+    }
+
+    public Optional<MessageModel> obtenerPorId(int id) {
+        return messageRepository.findById(id);
     }
 }
 
