@@ -27,12 +27,12 @@ public class MessageModel {
 
 
     @ManyToOne
-    @JoinColumn(name = "car_id", nullable = false)
+    @JoinColumn(name = "car_id")
     @JsonIgnoreProperties({"messages","reservations"})
     private CarModel car;
 
     @ManyToOne
-    @JoinColumn(name = "client_id", nullable = false)
+    @JoinColumn(name = "client_id")
     @JsonIgnoreProperties({"messages","reservations"})
     private ClientModel client;
 
