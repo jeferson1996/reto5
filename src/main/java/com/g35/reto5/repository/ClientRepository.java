@@ -12,8 +12,8 @@ import java.util.List;
 public interface ClientRepository extends JpaRepository<ClientModel,Integer> {
 
     @Query(value = "SELECT client.*,count(*) AS count_status FROM client\n" +
-            "INNER JOIN reservation ON client.id = reservation.id_Client\n" +
-            "WHERE reservation.status = 'completed'\n" +
+            "INNER JOIN reservations ON client.id = reservations.client_id\n" +
+            "WHERE reservations.status = 'completed'\n" +
             "GROUP BY client.id\n" +
             "ORDER BY count_status DESC", nativeQuery = true)
     List<ClientModel> findClientByStatusCompleted();
